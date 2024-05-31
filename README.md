@@ -6,7 +6,7 @@ You can do this using a **script** or **manually**.
 
 ### Script
 ```
-./gependencies_certificate_nginx-config.sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/w3coins-io/setting_up_provider/main/SettingUpTheProvider.sh)"
 ```
 
 ### 📂 Install Required Dependencies
