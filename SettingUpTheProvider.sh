@@ -313,8 +313,8 @@ print_info2 "/etc/systemd/system/$service_name-provider.service"
 # Reload systemd, enable and start the service
 echo "Reloading systemd daemon and enabling the service"
 sudo systemctl daemon-reload
-sudo systemctl enable lava-provider.service
-#sudo systemctl start lava-provider.service
+sudo systemctl enable $service_name-provider.service
+#sudo systemctl start $service_name-provider.service
 
 echo "You can start the service with this command: "
 print_info "systemctl start $service_name-provider.service"
