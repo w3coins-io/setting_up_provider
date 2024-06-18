@@ -233,13 +233,28 @@ for interface in "${api_interfaces_array[@]}"; do
     read -p "Enter URLs for $interface: " node_urls
   fi
 
-  echo "  - api-interface: $interface" >> "$output_file"
-  echo "    chain-id: $chain_id" >> "$output_file"
-  echo "    network-address:" >> "$output_file"
-  echo "      address: \"127.0.0.1:$port\"" >> "$output_file"
-  echo "      disable-tls: true" >> "$output_file"
-  echo "    node-urls:" >> "$output_file"
-  echo "      - url: $node_urls" >> "$output_file"
+  if [ "$interface" == "tendermintrpc" ]; then
+    node_ws="${node_urls/https:/wss:}"
+    node_ws="${node_urls/http:/ws:}"
+    echo "  - api-interface: $interface" >> "$output_file"
+    echo "    chain-id: $chain_id" >> "$output_file"
+    echo "    network-address:" >> "$output_file"
+    echo "      address: \"127.0.0.1:$port\"" >> "$output_file"
+    echo "      disable-tls: true" >> "$output_file"
+    echo "    node-urls:" >> "$output_file"
+    echo "      - url: $node_urls" >> "$output_file"
+    echo "      - url: $node_ws/websocket" >> "$output_file"
+
+  else
+    echo "  - api-interface: $interface" >> "$output_file"
+    echo "    chain-id: $chain_id" >> "$output_file"
+    echo "    network-address:" >> "$output_file"
+    echo "      address: \"127.0.0.1:$port\"" >> "$output_file"
+    echo "      disable-tls: true" >> "$output_file"
+    echo "    node-urls:" >> "$output_file"
+    echo "      - url: $node_urls" >> "$output_file"
+  fi
+
 done
 
 echo "File created at: $output_file"
