@@ -1,7 +1,7 @@
 #!/bin/bash
 FILE_PATH=$HOME
 PORT=""
-URL_CHAINS_PROVIDER="https://public-rpc-testnet2.lavanet.xyz/rest/lavanet/lava/spec/show_all_chains"
+URL_CHAINS_PROVIDER="https://lava.rest.lava.build/lavanet/lava/spec/show_all_chains"
 
 # Function to print info messages in blue
 print_info2() {
