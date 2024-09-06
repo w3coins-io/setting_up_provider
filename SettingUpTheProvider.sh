@@ -242,8 +242,9 @@ for interface in "${api_interfaces_array[@]}"; do
     echo "      address: \"127.0.0.1:$port\"" >> "$output_file"
     echo "      disable-tls: true" >> "$output_file"
     echo "    node-urls:" >> "$output_file"
-    echo "      - url: $node_urls" >> "$output_file"
     echo "      - url: $node_ws/websocket" >> "$output_file"
+    echo "      - url: $node_urls" >> "$output_file"
+
 
   else
     echo "  - api-interface: $interface" >> "$output_file"
